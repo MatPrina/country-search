@@ -1,14 +1,34 @@
 <!DOCTYPE html>
 <html lang="pt-BR">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
-    <link rel="stylesheet" href="./style.css">
-</head>
-<body>
-    
-
-<script src="./script.js"></script>
-</body>
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Country Search</title>
+        <link rel="stylesheet" href="./style.css">
+    </head>
+    <body>
+        <header id="cabecario">
+            <h1 id="cabecario-titulo">Where in the world?</h1>
+            <div id="cabecario-theme">
+                <img src="./images/moon.svg" alt="imagem de uma lua" id="theme-image">
+                <span id="theme-text">Dark Mode</span>
+            </div>
+        </header>
+        <section id="pesquisa">
+            <nav id="nav">
+                <img src="./images/search.svg" alt="imagem de uma luneta" id="nav-image">
+                <input type="text" id="nav-input" placeholder="Search for a country...">
+            </nav>
+            <div id="filter">
+                <span id="filter-text">Filter By Region</span>
+                <div id="seta">
+                    <div id="traco-um"></div>
+                    <div id="traco-dois"></div>
+                </div>
+            </div>
+        </section>
+        <main id="conteudo">
+        </main>
+        <script src="./script.js"></script>
+    </body>
 </html>
