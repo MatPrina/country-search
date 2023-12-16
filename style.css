@@ -112,6 +112,54 @@
         left: 4px;
     }
 
+    #conteudo {
+        display: flex;
+        flex-direction: column;
+        max-width: 75vw;
+        align-items: center;
+        gap: 2rem;
+        margin: 2rem auto 0;
+    }
+
+    .pais-div {
+        max-width: 100%;
+        display: flex;
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 1rem;
+        box-shadow: 1px 1px 10px rgb(153, 153, 153);
+        border-top-right-radius: 15px;
+        border-top-left-radius: 15px;
+        padding-bottom: 1rem;
+    }
+
+    .pais-img {
+        max-width: 100%;
+        border-top-right-radius: 15px;
+        border-top-left-radius: 15px;
+    }
+
+    .pais-titulo {
+        margin-top: 1rem;
+        margin-left: 2rem;
+        font-family: 'Nunito Sans', sans-serif;
+        font-weight: 900;
+        font-size: 18px;
+    }
+
+    .pais-label {
+        font-family: 'Nunito Sans', sans-serif;
+        font-weight: 900;
+        font-size: 14px;
+        margin-left: 2rem;
+    }
+
+    .pais-span {
+        font-family: 'Nunito Sans', sans-serif;
+        font-weight: 400;
+        font-size: 14px;
+    }
+
 }
 
 @media screen and (min-width: 376px) {
@@ -215,6 +263,55 @@
         transform: rotate(45deg);
         position: relative;
         left: 4px;
+    }
+
+    #conteudo {
+        margin: 2rem auto 0;
+        max-width: 75vw;
+        display: grid;
+        grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+        grid-template-rows: auto;
+        row-gap: 2rem;
+        column-gap: 2rem;
+    }
+
+    .pais-div {
+        max-width: 100%;
+        display: flex;
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 1rem;
+        box-shadow: 1px 1px 10px rgb(153, 153, 153);
+        border-top-right-radius: 15px;
+        border-top-left-radius: 15px;
+        padding-bottom: 1rem;
+    }
+
+    .pais-img {
+        max-width: 100%;
+        border-top-right-radius: 15px;
+        border-top-left-radius: 15px;
+    }
+
+    .pais-titulo {
+        margin-top: 1rem;
+        margin-left: 2rem;
+        font-family: 'Nunito Sans', sans-serif;
+        font-weight: 900;
+        font-size: 18px;
+    }
+
+    .pais-label {
+        font-family: 'Nunito Sans', sans-serif;
+        font-weight: 900;
+        font-size: 14px;
+        margin-left: 2rem;
+    }
+
+    .pais-span {
+        font-family: 'Nunito Sans', sans-serif;
+        font-weight: 400;
+        font-size: 14px;
     }
 
 }
