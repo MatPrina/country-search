@@ -135,13 +135,22 @@
 
     .pais-img {
         max-width: 100%;
+        height: 50%;
+        object-fit: cover;
         border-top-right-radius: 15px;
         border-top-left-radius: 15px;
     }
 
-    .pais-titulo {
-        margin-top: 1rem;
+    .div-info {
+        display: flex;
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 1rem;
         margin-left: 2rem;
+        height: 50%;
+    }
+
+    .pais-titulo {
         font-family: 'Nunito Sans', sans-serif;
         font-weight: 900;
         font-size: 18px;
@@ -151,7 +160,6 @@
         font-family: 'Nunito Sans', sans-serif;
         font-weight: 900;
         font-size: 14px;
-        margin-left: 2rem;
     }
 
     .pais-span {
@@ -277,6 +285,7 @@
 
     .pais-div {
         max-width: 100%;
+        height: 400px;
         display: flex;
         flex-direction: column;
         align-items: flex-start;
@@ -288,30 +297,38 @@
     }
 
     .pais-img {
-        max-width: 100%;
+        width: 100%;
+        height: 50%;
+        object-fit: cover;
         border-top-right-radius: 15px;
         border-top-left-radius: 15px;
     }
 
-    .pais-titulo {
-        margin-top: 1rem;
+    .div-info {
+        display: flex;
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 1rem;
         margin-left: 2rem;
+        height: 50%;
+    }
+
+    .pais-titulo {
         font-family: 'Nunito Sans', sans-serif;
         font-weight: 900;
-        font-size: 18px;
+        font-size: 24px;
     }
 
     .pais-label {
         font-family: 'Nunito Sans', sans-serif;
         font-weight: 900;
-        font-size: 14px;
-        margin-left: 2rem;
+        font-size: 18px;
     }
 
     .pais-span {
         font-family: 'Nunito Sans', sans-serif;
         font-weight: 400;
-        font-size: 14px;
+        font-size: 18px;
     }
 
 }
