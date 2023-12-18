@@ -1,6 +1,11 @@
 const main = document.getElementById('conteudo')
 const btnNav = document.getElementById('nav-image')
 const btnInput = document.getElementById('nav-input')
+const filter = document.getElementById('filter-box')
+const filterSelect = document.getElementById('filter-select')
+const seta = document.getElementById('seta')
+let regiao = ''
+let selecionada
 
 function renderCountry(pais) {
     const div = document.createElement('div')
@@ -52,25 +57,81 @@ function renderCountry(pais) {
 
 }
 
+function renderFilter() {
+
+    while(filterSelect.firstChild) {
+        filterSelect.removeChild(filterSelect.firstChild)
+    }
+
+    const africa = document.createElement('span')
+    africa.innerText = 'Africa'
+    africa.id = 'africa'
+    africa.classList.add('region')
+
+    const america = document.createElement('span')
+    america.innerText = 'America'
+    america.id = 'america'
+    america.classList.add('region')
+
+    const asia = document.createElement('span')
+    asia.innerText = 'Asia'
+    asia.id = 'asia'
+    asia.classList.add('region')
+
+    const europe = document.createElement('span')
+    europe.innerText = 'Europe'
+    europe.id = 'europe'
+    europe.classList.add('region')
+
+    const oceania = document.createElement('span')
+    oceania.innerText = 'Oceania'
+    oceania.id = 'oceania'
+    oceania.classList.add('region')
+
+    filterSelect.append(africa, america, asia, europe, oceania)
+
+    if(selecionada == '' || selecionada == null || selecionada == undefined) {
+    } else {
+        document.getElementById(selecionada).classList.add('selecionada')
+    }
+}
+
 async function getCountry(pais = "") {
 
     while(main.firstChild) {
         main.removeChild(main.firstChild)
     }
 
-    if(pais == "") {
-        const paises = await fetch('https://restcountries.com/v3.1/all')
-            .then(res => res.json())   
-        paises.forEach((pais) => {
-            renderCountry(pais)
-        })
+    if(regiao == '') {
+        if(pais == "") {
+            const paises = await fetch('https://restcountries.com/v3.1/all')
+                .then(res => res.json())   
+            paises.forEach((pais) => {
+                renderCountry(pais)
+            })
+        } else {
+            const paises = await fetch('https://restcountries.com/v3.1/name/' + pais)
+                .then(res => res.json())   
+            paises.forEach((pais) => {
+                renderCountry(pais)
+            })
+        } 
     } else {
-        const paises = await fetch('https://restcountries.com/v3.1/name/' + pais)
-            .then(res => res.json())   
-        paises.forEach((pais) => {
-            renderCountry(pais)
-        })
-    } 
+        if(pais == "") {
+            const paises = await fetch('https://restcountries.com/v3.1/region/' + regiao)
+                .then(res => res.json())   
+            paises.forEach((pais) => {
+                renderCountry(pais)
+            })
+        } else {
+            const paises = await fetch('https://restcountries.com/v3.1/name/' + pais)
+                .then(res => res.json())   
+            paises.forEach((pais) => {
+                renderCountry(pais)
+            })
+        } 
+    }
+
 }
 
 btnNav.addEventListener('click', () => {
@@ -85,6 +146,31 @@ document.addEventListener('keydown', (ev) => {
     }
 })
 
+filter.addEventListener('click', () => {
+    renderFilter()
+    filterSelect.classList.toggle('aberto')
+    seta.classList.toggle('aberta')
+})
 
+filterSelect.addEventListener('click', (ev) => {
+
+    if(ev.target.classList.contains('selecionada')) {
+        ev.target.classList.remove('selecionada')
+        regiao = ''
+        getCountry()
+    } else {
+        filterSelect.childNodes.forEach((regiao) => {
+            regiao.classList.remove('selecionada')
+        })
+        
+        document.getElementById(ev.target.id).classList.toggle('selecionada')
+        regiao = ev.target.id
+        getCountry()
+    }
+
+    selecionada = document.querySelector('.selecionada').id
+    console.log(selecionada)
+
+})
 
 getCountry()
