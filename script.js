@@ -1,11 +1,13 @@
 const main = document.getElementById('conteudo')
 const btnNav = document.getElementById('nav-image')
 const btnInput = document.getElementById('nav-input')
+const filterTotal = document.getElementById('filter')
 const filter = document.getElementById('filter-box')
 const filterSelect = document.getElementById('filter-select')
 const seta = document.getElementById('seta')
+const btnTheme = document.getElementById('cabecario-theme')
+const body = document.getElementById('body')
 let regiao = ''
-let selecionada
 
 function renderCountry(pais) {
     const div = document.createElement('div')
@@ -55,6 +57,10 @@ function renderCountry(pais) {
     div.append(img, divInfo)
     main.appendChild(div)
 
+    div.addEventListener('click', () => {
+
+    })
+
 }
 
 function renderFilter() {
@@ -89,11 +95,6 @@ function renderFilter() {
     oceania.classList.add('region')
 
     filterSelect.append(africa, america, asia, europe, oceania)
-
-    if(selecionada == '' || selecionada == null || selecionada == undefined) {
-    } else {
-        document.getElementById(selecionada).classList.add('selecionada')
-    }
 }
 
 async function getCountry(pais = "") {
@@ -134,10 +135,6 @@ async function getCountry(pais = "") {
 
 }
 
-btnNav.addEventListener('click', () => {
-    getCountry(btnInput.value)
-})
-
 document.addEventListener('keydown', (ev) => {
     if(ev.key === 'Enter') {
         getCountry(btnInput.value)
@@ -154,23 +151,42 @@ filter.addEventListener('click', () => {
 
 filterSelect.addEventListener('click', (ev) => {
 
-    if(ev.target.classList.contains('selecionada')) {
-        ev.target.classList.remove('selecionada')
-        regiao = ''
-        getCountry()
-    } else {
-        filterSelect.childNodes.forEach((regiao) => {
-            regiao.classList.remove('selecionada')
-        })
-        
-        document.getElementById(ev.target.id).classList.toggle('selecionada')
-        regiao = ev.target.id
-        getCountry()
+    if(ev.target == filterSelect) {
+
+    }else {
+        if(ev.target.classList.contains('selecionada')) {
+            ev.target.classList.remove('selecionada')
+            regiao = ''
+            getCountry()
+        } else {
+            filterSelect.childNodes.forEach((regiao) => {
+                regiao.classList.remove('selecionada')
+            })
+            
+            document.getElementById(ev.target.id).classList.toggle('selecionada')
+            regiao = ev.target.id
+            getCountry()
+        }
     }
+})
 
-    selecionada = document.querySelector('.selecionada').id
-    console.log(selecionada)
+btnTheme.addEventListener('click', () => {
+    const themeImage = document.getElementById('theme-image')
+    const themeText = document.getElementById('theme-text')
 
+    if(themeText.innerText == "Dark Mode") {
+        themeText.innerText = "Light Mode"
+        themeImage.src = "./images/sun.png"
+        body.classList.add('dark-mode')
+        btnInput.classList.add('dark-mode')
+        filterSelect.classList.add('dark-mode')
+    } else {
+        themeText.innerText = "Dark Mode"
+        themeImage.src = "./images/moon.svg"
+        body.classList.remove('dark-mode')
+        btnInput.classList.remove('dark-mode')
+        filterSelect.classList.remove('dark-mode')
+    }
 })
 
 getCountry()

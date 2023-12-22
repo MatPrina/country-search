@@ -23,6 +23,7 @@
         flex-direction: row;
         align-items: center;
         gap: 0.4rem;
+        cursor: pointer;
     }
 
     #cabecario-titulo {
@@ -124,7 +125,7 @@
     }
 
     .region.selecionada {
-        color: red;
+        font-weight: 900;
     }
 
     #seta {
@@ -232,7 +233,7 @@
         display: flex;
         flex-direction: row;
         gap: 0.5rem;
-
+        cursor: pointer;
     }
 
     #theme-image {
@@ -330,7 +331,7 @@
     }
 
     .region.selecionada {
-        color: red;
+        font-weight: 900;
     }
 
     #seta {
@@ -419,4 +420,19 @@
         font-size: 18px;
     }
 
+}
+
+.dark-mode {
+    background-color: hsl(207, 26%, 17%);
+    color: hsl(0, 0%, 100%);
+}
+
+#btnInput.dark-mode {
+    background-color: hsl(207, 26%, 17%);
+    color: hsl(0, 0%, 100%);
+}
+
+#filter-select.aberto.dark-mode {
+    background-color: hsl(207, 26%, 17%);
+    color: hsl(0, 0%, 100%);
 }
