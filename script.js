@@ -5,6 +5,7 @@ const filterTotal = document.getElementById('filter')
 const filter = document.getElementById('filter-box')
 const filterSelect = document.getElementById('filter-select')
 const seta = document.getElementById('seta')
+const tracos = document.querySelectorAll('.traco')
 const btnTheme = document.getElementById('cabecario-theme')
 const body = document.getElementById('body')
 let regiao = ''
@@ -180,12 +181,17 @@ btnTheme.addEventListener('click', () => {
         body.classList.add('dark-mode')
         btnInput.classList.add('dark-mode')
         filterSelect.classList.add('dark-mode')
+        tracos.forEach(traco => traco.classList.add('dark-mode'))
+        btnNav.classList.add('dark-mode')
     } else {
         themeText.innerText = "Dark Mode"
         themeImage.src = "./images/moon.svg"
         body.classList.remove('dark-mode')
         btnInput.classList.remove('dark-mode')
         filterSelect.classList.remove('dark-mode')
+        tracos.forEach(traco => traco.classList.remove('dark-mode'))
+        btnNav.classList.remove('dark-mode')
+
     }
 })
 

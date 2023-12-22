@@ -382,7 +382,6 @@
         box-shadow: 1px 1px 10px rgb(153, 153, 153);
         border-top-right-radius: 15px;
         border-top-left-radius: 15px;
-        cursor: pointer;
     }
 
     .pais-img {
@@ -432,7 +431,15 @@
     color: hsl(0, 0%, 100%);
 }
 
+#nav > #btnNav.dark-mode {
+    color: hsl(0, 0%, 100%);
+}
+
 #filter-select.aberto.dark-mode {
     background-color: hsl(207, 26%, 17%);
     color: hsl(0, 0%, 100%);
+}
+
+#seta > .traco.dark-mode {
+    background-color: hsl(0, 0%, 100%);
 }
